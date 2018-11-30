@@ -1,0 +1,12 @@
+body {
+    background-image: url("../IMG/3.jpeg");
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-position:top;
+    background-size: 100%;
+    width: 50%;
+    border:5px solid blue;
+    padding: 10px;
+    text-decoration: none;
+} 
+
