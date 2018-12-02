@@ -1,12 +1,40 @@
-body {
-    background-image: url("../IMG/3.jpeg");
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
-    background-position:top;
-    background-size: 100%;
-    width: 50%;
-    border:5px solid blue;
-    padding: 10px;
-    text-decoration: none;
-} 
+#user {
+    width: 70%;
+    margin-left: 5%;
+    background-color: grey;
+    position: fixed;
+    padding: 1%;
+    top: 2%;
+    font-size: 150%;
+}   
+
+#categories {
+    width: 70%;
+    margin-left: 5%;
+    background-color: grey;
+    position: fixed;
+    padding: 1%;
+    top: 11%;
+}
+
+#blog {
+    width: 70%;
+    margin-left: 5%;
+    background-color: lightblue;
+    padding: 1%;
+    border-top: 10%;
+    margin-top:10%;
+    border:5px solid grey;
+}
+
+#form {
+    width: 70%;
+    margin-left: 5%;
+    background-color: lightblue;
+    position: relative;
+    padding: 1%;
+    border-top: 10%;
+    margin-top:10%;
+    border:5px solid grey;
+}
 
