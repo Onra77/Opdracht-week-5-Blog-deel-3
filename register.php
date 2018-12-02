@@ -1,7 +1,16 @@
 <?php
 include_once("db.php");
-if(isset($_POST) & !empty($_POST)){
-//if(isset($_POST['submit']))  { 
+session_start();
+
+// als je a ingelogd bent ga je terug naar index.php.
+//echo $_SESSION['username'];
+if(isset($_SESSION['username'])) {
+//true al ingelogd
+header("location:index.php");
+    } else{
+
+    if(isset($_POST) & !empty($_POST)){
+    //if(isset($_POST['submit']))  { 
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $password = $_POST['password'];
@@ -13,8 +22,9 @@ if(isset($_POST) & !empty($_POST)){
         header("location:login.php");
     }else{
         $fsmg = "Registratie mislukt.";
-     }
+    }
    }
+}
 ?>
 
 <!DOCTYPE html> 

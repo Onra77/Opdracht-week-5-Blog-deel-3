@@ -1,45 +1,44 @@
 <?php
     include 'header.php';
-    // Als je niet ingelogd bent wordt naar inlog.php gestuurd.
-    if(!isset($_GET['pid'])) {
-        header("location: login.php");
-    }
-      
-    // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
-    $title = '';
-    $content = '';
-     
-    // Invoeren van tekst en titel voor de blog.
-    if(isset($_POST['post'])) {
+
+    // Als je niet ingelogd bent wordt je naar login.php gestuurd.
+    //echo $_SESSION['username']; 
+    if(!isset($_SESSION['username'])) {
+        //true al ingelogd
+        header("location:login.php");
+    } else{
+        // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
+        $title = '';
+        $content = '';
+        
+        // Invoeren van tekst en titel voor de blog.
+        if(isset($_POST['post'])) {
         $title = strip_tags($_POST['title']);
         $title = mysqli_real_escape_string($db, $title);
         $content = strip_tags($_POST['content']); 
         $content = mysqli_real_escape_string($db, $content);
         $author = strip_tags($_SESSION['username']);
         $cats = strip_tags($_POST['cats']);
-        //$sql =  "INSERT into post (tagid) VALUES ('$tagid')";
-        //$author = mysqli_real_escape_string($db, $author);
         $captcha = strip_tags($_POST['captcha']); 
         $code = $_POST['cap'];
         $sql =  "INSERT into post (title, content, author, cat_id) VALUES ('$title', '$content', '$author', '$cats')";
-           if($title == "" || $content == "" || $author == "id" || $captcha != $code || $captcha == "") {
+            if($title == "" || $content == "" || $author == "id" || $captcha != $code || $captcha == "") {
             echo "De post is niet compleet ingevuld!";
-        }
-        else {
+        } else {
             mysqli_query($db, $sql);
             header("Location: index.php");
         }
-      }
-
+        }
+    }      
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles/post_style.css">
-    <title>Blog - berichten</title>
+    <title>Nieuwe bericht - R&M blog</title>
 </head>
 
-<body>
+<body id=form>
     <form action="post.php" method="post" enctype="multipart/form-data">
         <?php
             // De categorieën
@@ -51,11 +50,9 @@
                 <!-- is $_POST['cats'] gelijk aan de tagid echo dan checked -->
                 <input type='radio' name= 'cats' <?php echo $tagid; ?> value='<?php echo $tagid ?>'/>
                 <?php echo $row['category'];
-                //echo $tagid;
-                //echo $post;
-                }
+            }
             }else {echo "Geen categorieën.";
-                }
+            }
         ?> 
         <br/><br/>
         <input placeholder="Title" name="title" type="text" autofocus size="48" value="<?php echo $title; ?>"><br/><br/>

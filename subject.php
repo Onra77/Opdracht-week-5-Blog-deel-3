@@ -1,37 +1,42 @@
 <?php
     include 'header.php';
-    // Als je niet ingelogd bent wordt naar inlog.php gestuurd.
-    if(!isset($_GET['pid'])) {
-        header("location: login.php");
-    }
+   
+    // Als je niet ingelogd bent wordt naar login.php gestuurd.
+    //echo $_SESSION['username']; 
+    if(!isset($_SESSION['username'])) {
+        //true al ingelogd
+        header("location:login.php");
+            } else{
+
     // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
     $category = '';
        
     if(isset($_POST['submit'])) {
         $category = strip_tags($_POST['category']);
         $category = mysqli_real_escape_string($db, $category);
+        $author = strip_tags($_SESSION['username']);
         $captcha = strip_tags($_POST['captcha']); 
         $code = $_POST['cap'];
-        $sql =  "INSERT into categories (category) VALUES ('$category')";
+        $sql =  "INSERT into categories (category, author) VALUES ('$category', '$author')";
            if($category == "") {
             echo "De onderwerp is niet ingevuld!";
-        }
-        else {
-            mysqli_query($db, $sql);
-            header("Location: subject.php");
-        }
+            }
+            else {
+                mysqli_query($db, $sql);
+                header("Location: index.php");
+            }   
       }
-
+    }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="styles/post_style.css">
-    <title>Nieuwe onderwerp</title>
+    <title>Nieuwe onderwerp - R&M blog</title>
 </head>
 
-<body>
-   
+<body id=form>
     <!--<?php echo $_SESSION['username']; ?> -->
     <form action="subject.php" method="post" enctype="multipart/form-data"><br/>
         <input placeholder="Voer nieuwe onderwerp in" name="category" type="text" autofocus size="48" value="<?php echo $category; ?>"><br/><br/>
