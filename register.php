@@ -23,7 +23,7 @@ header("location:index.php");
     }else{
         $fsmg = "Registratie mislukt.";
     }
-   }
+    }
 }
 ?>
 

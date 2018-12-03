@@ -4,7 +4,7 @@
     $x = $_POST['cats'];
   }
   if(isset($_POST['reset'])) {
-    $sql = "SELECT * FROM post ORDER BY id DESC";
+    $sql = "SELECT * FROM post ORDER BY id DESC"; 
   }
 ?>
 

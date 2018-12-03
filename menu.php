@@ -17,11 +17,11 @@
 </form>   
 </div>
 
- <script>
+<script>
         function login() {
             location.href = "login.php";
         }
         function logout() {
             location.href = "logout.php";
         }
-    </script>
+</script>
