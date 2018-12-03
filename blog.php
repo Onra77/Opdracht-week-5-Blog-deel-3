@@ -12,15 +12,13 @@
         <?php
             require_once("nbbc.php");
             $bbcode = new BBCode;
-            
+             // Geeft verschillende knoppen als je ingelog bent of niet.
             if($x <= 1) {
-                $sql = "SELECT * FROM post ORDER BY date DESC";
+                $sql = "SELECT *, DATE_FORMAT(date, '%D %M %Y om %H:%i') as date_formatted FROM post ORDER BY date DESC";
             } else {
-                $sql = "SELECT * FROM post WHERE cat_id='$x' ORDER BY date DESC";       
+                $sql = "SELECT *, DATE_FORMAT(date, '%D %M %Y om %H:%i') as date_formatted FROM post WHERE cat_id='$x' ORDER BY date DESC";       
             }
             $res = mysqli_query($db, $sql) or die(mysqli_error($db));
-            $post ="";
-            // Geeft verschillende knoppen als je ingelog bent of niet.   
             if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
                 //true al ingelogd
                 if(mysqli_num_rows($res) >0) {
@@ -30,7 +28,7 @@
                         $content = $row['content'];
                         $author = $row['author'];
                         $cats = $row['cat_id'];
-                        $date = $row['date'];
+                        $date = $row['date_formatted'];
                         ?><div id=change><?php    
                         $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;<a href='edit_post.php?pid=$id'>Wijzig</a>&nbsp</div>";
                         ?></div><?php    
@@ -46,7 +44,7 @@
                     $id = $row['id'];
                     $title = $row['title'];
                     $content = $row['content'];
-                    $date = $row['date'];
+                    $date = $row['date_formatted'];
                     $output = $bbcode->Parse($content);
                     $post = "<div><a href='view_post/php?pid=$id'><b>$title<?b></a>&nbsp&nbsp&nbsp<b>$date<?php,'d F Y H:i:s'?></b><p></div>";
                     echo $post;
