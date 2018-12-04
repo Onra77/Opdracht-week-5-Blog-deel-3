@@ -31,15 +31,13 @@
                     $author = $row['author'];
                     $cats = $row['cat_id'];
                     $date = $row['date_formatted'];
-                    ?><div id=change><?php    
                     $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;<a href='edit_post.php?pid=$id'>Wijzig</a>&nbsp</div>";
-                    ?></div><?php    
                     $output = $bbcode->Parse($content);
-                    $post = "<div><a href='index.php?pid=$id'/><b>$title<?b<b>$author</b>&nbsp&nbsp$date&nbsp&nbsp<b>$cats</b>$admin</div>";
+                    $post = "<div><a href='index.php?pid=$id'/><b>$title</a>&nbsp&nbsp</b><b>Author:&nbsp$author</b>&nbsp&nbsp&nbsp$date&nbsp&nbsp<b>$cats</b><p>$content<p></div>";
                     echo $post;
                 }
             } else { 
-                    ?><br/><?php  echo "Er zijn geen berichten uit die categorie.";
+                    ?><?php  echo "Er zijn geen berichten uit die categorie.";
             }
         } else if(mysqli_num_rows($res) >0) {
             while($row = mysqli_fetch_assoc($res)) {

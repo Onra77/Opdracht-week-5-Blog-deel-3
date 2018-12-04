@@ -65,5 +65,8 @@
         <input type="hidden" name="cap" value="<?php echo $cap;?>">
     </form>
     
-</body>    
+</body>
+<?php include 'footer.php';?>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>    
 </html>

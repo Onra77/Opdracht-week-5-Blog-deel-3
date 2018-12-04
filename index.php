@@ -21,18 +21,13 @@
 
 <?php
 
-
-
-
-
-
 if(isset($_POST['zoek'])){
     $zoekbalk = $_POST['zoekbalk'];
     $con=mysqli_connect("localhost","root","","blog2");
     $sql = "SELECT * FROM post WHERE title LIKE '%$zoekbalk%'";
     $query=mysqli_query($con, $sql);
     $rowcount=mysqli_num_rows($query);
- //echo $rowcount;
+ echo $rowcount;
     if($rowcount ==0){
         echo "<h3>Geen resultaat!</h3>";
     } else {
@@ -57,6 +52,8 @@ if(isset($_POST['zoek'])){
 }      
 ?>
 </div>
+
+
 <?php 
 
 if(!isset($_GET['pid'])) {
@@ -64,13 +61,18 @@ if(!isset($_GET['pid'])) {
 } else {
 
   //sql output
-echo 'morty';
+echo 'morty lasdjf asd; dl jsdlf asdkfl jasdfasdj fklsdj flasdj l dslkjf flk lk;asdj flja dlkasdj f asd faskld flaskf asdkljf sdklj fasdklj fasdklj fskldjf sdklfj 
+ adflk asdfklasj fasdklj fsdklfj sdljsdklaj asdlkj aejfa;hga jfslj asdf asdf lsdfjk asdjf askldjf lsadjfk ljfklsadj flaskj fasdklkhf;asldhf asdjhjkasdhflksdh
+  asdf;asljflasdjf iowjgakljgasdk;lj asdklj fasdlj fasdlfklasj fasdklj lsdkf asdklj asdljf asdkljf as fsdkl fasdklf ;lasj fj;lasdjfkl fkljas kflasd jfklasf ldhg
+   klasdfj asdklj fasd fjasdklj fasdj fasdlj fawe;j fk;lsej flsdkf asdkljf asflkasd askl fi;ojasdl sk;lj f;lasdjfj;s dklasdj klasdj fasdklfj sdkl;jf ;sfd sdfkl 
+    asklj fasdklj flkasdj fasdklfj asklj faskljf sjfasklj fklasdasdkl fsdjf asdklj klsadjf jf klasdjf lkasj leslwehioheio ise ieo sd;l aseio isi oieo iooi 
+    lks dfjasklj fasdklj fasdklj fasdk;lfj asdklj fasdklfj sdklfj asdklfj asdkljf asdklj fasldkj fasdkl jfweiojfosjf klasj fklasdjf klasdj fklasdjf sdklf';
+
     
 }
 
 //include 'comments.php';
-
-
 ?>
+
 </body>
 </html>
