@@ -1,40 +1,47 @@
 #user {
-    width: 70%;
-    margin-left: 5%;
-    background-color: grey;
+    width: 100%;
+    margin-left: 0%;
+    background-color: rgb(128, 187, 197);
     position: fixed;
     padding: 1%;
-    top: 2%;
-    font-size: 150%;
+    top:0;
+    text-align: center;
 }   
 
-#categories {
-    width: 70%;
-    margin-left: 5%;
-    background-color: grey;
-    position: fixed;
-    padding: 1%;
-    top: 11%;
-}
-
 #blog {
-    width: 70%;
-    margin-left: 5%;
+    width: 72%;
+    margin-left: 25%;
     background-color: lightblue;
     padding: 1%;
-    border-top: 10%;
-    margin-top:10%;
-    border:5px solid grey;
+    border:3px solid grey;
+    float:center;
+    margin-top: 8%;
 }
 
-#form {
-    width: 70%;
-    margin-left: 5%;
+#form {-
+    width: 48%;
+    margin-left: 25%;.
+    margin-top:8%;
     background-color: lightblue;
     position: relative;
     padding: 1%;
-    border-top: 10%;
-    margin-top:10%;
-    border:5px solid grey;
+    top:5%;
+    border:3px solid grey;
 }
 
+#search {
+    position: fixed;
+    top: 0;
+    padding: 1%;
+}
+
+#zoekresultaat {
+    width: 20%;
+    margin-left: 1%;
+    background-color: lightblue;
+    padding: 1%;
+    border:3px solid grey;
+    float:left;
+    margin-top: 0%;
+
+}

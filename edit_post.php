@@ -33,7 +33,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Wijzig bericht - R&M blog</title>
+    <title>Edit bericht - R&M blog</title>
 </head>
 
 <body id=form>

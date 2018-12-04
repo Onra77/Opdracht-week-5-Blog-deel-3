@@ -5,18 +5,17 @@
         <input type="button" value="Nieuwe bericht" onclick="location.href='post.php';">
         <input type="button" value="Nieuwe onderwerp" onclick="location.href='subject.php';">&nbsp&nbsp&nbsp
         <span><b>Welkom terug <?php echo $_SESSION['username']; ?>,</b></span>
-        <span><b>R&M blog</b></span>&nbsp&nbsp&nbsp&nbsp&nbsp<?php include 'search.html';?><br/><br/>
+        <span><b>R&M blog</b></span> 
     <?php 
         //true al ingelogd
         } else{
     ?>
         <input type="button" value="Login" onclick="login();">
         <input type="button" value="Registeer" onclick="location.href='register.php';">
-        <span><b>Welkom op mijn R&M blog</b></span><br/><br/>
+        <span><b>Welkom op R&M blog</b></span>
     <?php } ?>
 
     <form action "index.php" method="post">
-    <input name="post" type="submit" value="Filter">
         <?php
         $sql = "SELECT * FROM categories ORDER BY id ASC";
         $res = mysqli_query($db, $sql) or die(mysqli_error($db));
@@ -30,7 +29,7 @@
                 echo "Geen categorieën.";
         }
         ?>
-        
+        <input name="post" type="submit" value="Filter">
     </form>   
 </div>
 

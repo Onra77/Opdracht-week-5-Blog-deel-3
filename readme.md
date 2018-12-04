@@ -1,35 +1,40 @@
-User stories:
-Code
 User story
-W4-01
-Als een Blogger wil ik een artikel aan één categorie kunnen koppelen zodat mijn lezers sneller artikelen kunnen vinden rondom een bepaald thema
-Gelukt!
+W5-001
+Als lezer wil ik wil ik kunnen zoeken naar een bepaald artikel door het invoeren van 1 of meerdere trefwoorden zodat ik een artikel over een bepaald ontwerp snel kan vinden.
 
-W4-02
-Als een Lezer wil ik alleen de artikelen in een bepaalde categorie kunnen selecteren zodat ik gericht alle artikelen over een bepaald thema kan lezen
-Gelukt!
+W5-002
+Als blogger wil ik in kunnen loggen zodat ik toegang kan krijgen tot de backend pagina zodat ik bijvoorbeeld artikelen kan schrijven en beheren.
+Klaar
 
-W4-03
-Als een Blogger wil ik zelf categorieën kunnen toevoegen zodat ik niet afhankelijk ben van de developer die mijn blog heeft ontwikkeld
-Gelukt!
+W5-003
+Als blogger wil ik me kunnen registreren zodat ik mijn gebruikersinformatie op kan slaan en blogs kan plaatsen op de website.
+Klaar
 
-W4-04
-Als een Blogger wil ik ook meerdere categorieën kunnen koppelen aan een artikel zodat ik me niet hoef te beperken tot één thema
+W5-004
+Als blogger wil ik een bestaand artikel kunnen wijzigen zodat als ik schrijffouten of andere dingen kan verbeteren.
+
+W5-005
+Als blogger wil ik dat alleen mensen die geregistreerd en ingelogd zijn commentaar kunnen geven.
+
+W5-006
+Als geregistreerde en ingelogde gebruiker wil ik mijn gebruikersnaam kunnen verbergen bij het geven van commentaar zodat ik mijn identiteit kan verbergen.
+
+W5-007
+Als blogger wil ik commentaar kunnen verwijderen zodat ik ongewenste berichten kan stoppen.
+
+W5-008
+Als blogger wil ik een openbare profielpagina hebben zodat lezers mijn berichten in kunnen lezen en mijn persoonlijke informatie kunnen bekijken.
 
 Optionele user stories
 
 Code
 User story
-W4-05
-Als een Blogger wil ik de tekst in het artikel kunnen formatteren (bijv. vet gedrukt of cursief maken) zodat ik duidelijker mijn boodschap kan overbrengen
-Tip: maak hierbij gebruik van een standaard Javascript library
-W4-06
-Als een Blogger wil ik een afbeeldingen in een artikel kunnen plaatsen zodat ik duidelijker mijn boodschap kan overbrengen
-
-Bonus story:
-Captca code met verschillende waardes.
-Gelukt! 
+W5-009
+Als blogger wil ik een text-expander die als ik een artikel aan het schrijven ben door mij zelf gedefinieerde afkortingen die ik type direct omzet in de volledige tekst zodat ik sneller mijn artikelen schrijven
+Voorbeeld: Als ik CG type moet er direct CodeGorilla verschijnen. En als ik gn type moet er direct Groningen verschijnen  
+Tip: Maak hiervoor gebruik van Javascript
 
 
-https://www.youtube.com/watch?v=4ZBTeqSuBrk
-
+W5-010
+Als blogger wil ik dat de wachtwoorden op een veilige manier worden opgeslagen zodat deze bij een datalek niet vrij komen.
+Klaar
