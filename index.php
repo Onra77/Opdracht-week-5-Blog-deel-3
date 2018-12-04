@@ -1,6 +1,5 @@
 <?php include 'header.php';?>
 <?php include 'user.php';?>
-
 <?php include 'footer.php';?>
 
 <!DOCTYPE html>
@@ -21,6 +20,12 @@
 <div id=zoekresultaat>
 
 <?php
+
+
+
+
+
+
 if(isset($_POST['zoek'])){
     $zoekbalk = $_POST['zoekbalk'];
     $con=mysqli_connect("localhost","root","","blog2");
@@ -29,10 +34,11 @@ if(isset($_POST['zoek'])){
     $rowcount=mysqli_num_rows($query);
  //echo $rowcount;
     if($rowcount ==0){
-        echo "Geen resultaat!";
+        echo "<h3>Geen resultaat!</h3>";
     } else {
+        
         while($row=mysqli_fetch_assoc($query)) {
-
+            
             if(!isset($_SESSION['username'])) {
                 //true al ingelogd
                 ?>
@@ -41,7 +47,7 @@ if(isset($_POST['zoek'])){
                 <?php
             } else {
                 ?>
-                <h3><?php echo $row['author']; ?></h3>
+                <h3>author: <?php echo $row['author']; ?></h3>
                 <h3><?php echo $row['title']; ?></h3>
                 <?php echo $row['content']; ?>
                 <?php
@@ -51,6 +57,20 @@ if(isset($_POST['zoek'])){
 }      
 ?>
 </div>
-<?php include 'blog.php';?>
+<?php 
+
+if(!isset($_GET['pid'])) {
+    include 'blog.php';
+} else {
+
+  //sql output
+echo 'morty';
+    
+}
+
+//include 'comments.php';
+
+
+?>
 </body>
 </html>

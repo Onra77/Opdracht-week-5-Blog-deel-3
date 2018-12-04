@@ -1,0 +1,47 @@
+1 inspector via browser checken naar css eigenschappen, 
+2 catogorien toevoegen in overzicht blog.
+3 redirect to index.php
+4 vereenvoudingen dubbel codes weglaten, in if index.php
+5 krittische blik naar mij codes kijken, op zoek naar dubbel en codestijl, op hetzelfde level zetten.
+6 week4 punt4, 5 en 6?
+
+	
+
+($date,"d/m/y H:i:s");
+
+ //echo $_SESSION['username'];
+    if(isset($_SESSION['username'])) {
+    //true al ingelogd
+    header("location:index.php");
+        } else{
+
+<?php 'd F Y H:i:s' ?>
+
+
+<div class="table">
+    <div class="tr">
+        <div class="d1">left text</div>
+        <div class="d2">center text</div>
+        <div class="d3">right text</div>
+    </div>
+</div>
+
+
+if ($zoekbalk > 0);{
+
+
+    if(!isset($_GET['pid'])) {
+        <?php include 'blog.php';?> 
+    } else {
+
+    } 
+        <h3><?php echo $row['title']; ?></h3>
+        <?php echo $row['content']; ?>
+    }else {
+            
+
+ $rowcount=mysql_num_rows($result=0);{
+
+
+
+

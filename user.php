@@ -4,7 +4,7 @@
         <!--<?php echo $_SESSION['username']; ?> &nbsp-->
         <input type="button" value="Nieuwe bericht" onclick="location.href='post.php';">
         <input type="button" value="Nieuwe onderwerp" onclick="location.href='subject.php';">&nbsp&nbsp&nbsp
-        <span><b>Welkom terug <?php echo $_SESSION['username']; ?>,</b></span>
+        <span><b>Welkom terug <?php echo $_SESSION['username']; ?>!</b></span>&nbsp&nbsp&nbsp&nbsp
         <span><b>R&M blog</b></span> 
     <?php 
         //true al ingelogd

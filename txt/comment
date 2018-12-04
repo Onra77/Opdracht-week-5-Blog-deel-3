@@ -1,0 +1,39 @@
+<?php 
+
+if(!isset($_GET['pid'])) {
+    $dogs = $_POST['dogs'];
+    include 'blog.php';
+    } else {
+
+    //sql output
+    
+    if(isset($_POST['zoek'])){
+        $zoekbalk = $_POST['dogs'];
+        $con=mysqli_connect("localhost","root","","blog2");
+        $sql = "SELECT * FROM post WHERE pid LIKE '%$zoekbalk%'";
+        $query=mysqli_query($con, $sql);
+        $rowcount=mysqli_num_rows($query);
+    //echo $rowcount;
+        if($rowcount ==0){
+            echo "<h3>Geen resultaat!</h3>";
+        } else {
+            
+            while($row=mysqli_fetch_assoc($query)) {
+                
+                    <h3>author: <?php echo $row['author']; ?></h3>
+                    <h3><?php echo $row['title']; ?></h3>
+                    <?php echo $row['content']; ?>
+                    <?php
+            }  
+             
+        }
+    }      
+
+
+} else { 
+        ?><br/><?php  echo "Er zijn geen comments uit die categorie.";
+}
+    
+}
+
+//include 'comments.php';
