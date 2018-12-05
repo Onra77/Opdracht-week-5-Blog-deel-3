@@ -8,7 +8,6 @@
   }
 ?>
 
-<div id=blog>
     <?php
         require_once("nbbc.php");
         $bbcode = new BBCode;
@@ -20,7 +19,7 @@
         }
         $res = mysqli_query($db, $sql) or die(mysqli_error($db));
         $post ="";
-        // Geeft verschillende knoppen als je ingelog bent of niet.   
+        // Geeft alleen mogelijkheid to wijzigen en verwijderen als ingelog bent.   
         if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
             //true al ingelogd
             if(mysqli_num_rows($res) >0) {
@@ -33,7 +32,7 @@
                     $date = $row['date_formatted'];
                     $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;<a href='edit_post.php?pid=$id'>Wijzig</a>&nbsp</div>";
                     $output = $bbcode->Parse($content);
-                    $post = "<div><a href='index.php?pid=$id'/><b>$title</a>&nbsp&nbsp</b><b>Author:&nbsp$author</b>&nbsp&nbsp&nbsp$date&nbsp&nbsp<b>$cats</b><p>$content<p></div>";
+                    $post = "<div><a href='index.php?pid=$id'/><b>$title</a>&nbsp&nbsp</b><b>Author:&nbsp$author</b>&nbsp&nbsp&nbsp$date&nbsp&nbsp<b>$cats</b><p></div>";
                     echo $post;
                 }
             } else { 
@@ -51,7 +50,7 @@
             } 
         }
     ?>
-</div>        
+  
 <script>
     $(function() {
     var fixed = document.getElementById('blog'), overflow;

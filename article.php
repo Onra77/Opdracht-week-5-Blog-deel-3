@@ -1,4 +1,43 @@
 <?php
+if(!isset($_GET['pid'])) {
+    include 'blog.php';
+    } else {
+        $pid=$_GET['pid'];
+        //sql output on pid value.
+
+        $sql = "SELECT *, DATE_FORMAT(date, '%D %M %Y om %H:%i') as date_formatted FROM post WHERE id='$pid' ORDER BY date DESC";  
+        $con=mysqli_connect("localhost","root","","blog2");
+        $query=mysqli_query($con, $sql); 
+        while($row = mysqli_fetch_assoc($query)) {
+            $id = $row['id'];
+            $title = $row['title'];
+            $content = $row['content'];
+            $author = $row['author'];
+            $cats = $row['cat_id'];
+            $date = $row['date_formatted'];
+            $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;<a href='edit_post.php?pid=$id'>Wijzig</a>&nbsp</div>";
+            $output = $bbcode->Parse($content);
+     
+            // Geeft alleen mogelijkheid to wijzigen en verwijderen als ingelog bent.   
+            if(!isset($_SESSION['username'])) {
+            //true al ingelogd
+      
+                $post = "<div><a href='article.php?pid=$id'/><b>$title</a></b><p><b>Author:&nbsp$author&nbspCategorie:&nbsp$cats&nbsp$date&nbsp</b><p>$output<p></div>";
+                echo $post;
+            } else {
+                $post = "<div><a href='article.php?pid=$id'/><b>$title</a></b><p><b>Author:&nbsp$author&nbspCategorie:&nbsp$cats&nbsp$date&nbsp</b><p>$output$admin<p></div>";
+                echo $post;
+
+                //select where id=52 from post inner join comments on comments.post_id = post.id;
+                
+                
+                include 'comments.php';
+                
+            }
+        }
+    }
+
+
     
     // Als je niet ingelogd bent wordt je naar login.php gestuurd.
     //echo $_SESSION['username']; 
@@ -23,8 +62,9 @@
             mysqli_query($db, $sql);
             header("Location: index.php");
         }
-        }
-    }      
+        
+    }
+}
 ?>
 
 <!DOCTYPE html>
