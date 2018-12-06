@@ -12,15 +12,19 @@ Klaar
 
 W5-004
 Als blogger wil ik een bestaand artikel kunnen wijzigen zodat als ik schrijffouten of andere dingen kan verbeteren.
+klaar
 
 W5-005
 Als blogger wil ik dat alleen mensen die geregistreerd en ingelogd zijn commentaar kunnen geven.
+klaar
 
 W5-006
 Als geregistreerde en ingelogde gebruiker wil ik mijn gebruikersnaam kunnen verbergen bij het geven van commentaar zodat ik mijn identiteit kan verbergen.
+klaar
 
 W5-007
 Als blogger wil ik commentaar kunnen verwijderen zodat ik ongewenste berichten kan stoppen.
+klaar
 
 W5-008
 Als blogger wil ik een openbare profielpagina hebben zodat lezers mijn berichten in kunnen lezen en mijn persoonlijke informatie kunnen bekijken.

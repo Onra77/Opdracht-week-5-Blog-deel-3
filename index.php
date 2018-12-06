@@ -27,7 +27,8 @@
         $sql = "SELECT * FROM post WHERE title LIKE '%$zoekbalk%'";
         $query=mysqli_query($con, $sql);
         $rowcount=mysqli_num_rows($query);
-    echo $rowcount;
+        echo "Resultaat: ";
+        echo $rowcount;
         if($rowcount ==0){
             echo "<h3>Geen resultaat!</h3>";
         } else {
@@ -40,7 +41,7 @@
                 <?php
             } else {
                 ?>
-                <h3>author: <?php echo $row['author']; ?></h3>
+                <h3>Author: <?php echo $row['author']; ?></h3>
                 <h3><?php echo $row['title']; ?></h3>
                 <?php echo $row['content']; ?>
                 <?php

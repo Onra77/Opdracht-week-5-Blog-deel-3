@@ -32,7 +32,7 @@
                     $date = $row['date_formatted'];
                     $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;<a href='edit_post.php?pid=$id'>Wijzig</a>&nbsp</div>";
                     $output = $bbcode->Parse($content);
-                    $post = "<div><a href='index.php?pid=$id'/><b>$title</a>&nbsp&nbsp</b><b>Author:&nbsp$author</b>&nbsp&nbsp&nbsp$date&nbsp&nbsp<b>$cats</b><p></div>";
+                    $post = "<div><a href='index.php?pid=$id'/><b>$title</a>&nbsp</b><b>&nbsp$author</b>&nbsp&nbsp&nbsp$date<p></div>";
                     echo $post;
                 }
             } else { 
