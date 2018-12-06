@@ -31,7 +31,7 @@ if(!isset($_GET['pid'])) {
                 //select where id=52 from post inner join comments on comments.post_id = post.id;
                 
                 
-                include 'comments.php';
+                //include 'comments.php';
                 
             }
         }
@@ -60,7 +60,7 @@ if(!isset($_GET['pid'])) {
             echo "De post is niet compleet ingevuld!";
         } else {
             mysqli_query($db, $sql);
-            header("Location: index.php");
+           // header("Location: index.php");
         }
         
     }
