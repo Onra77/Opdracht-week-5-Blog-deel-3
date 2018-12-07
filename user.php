@@ -26,13 +26,13 @@
                 $tagid = $row['id'];
                 echo "<input type='radio' name='cats' value='$tagid'  />";
                 echo $row['category'];
-                echo $tagid;
+                //echo $tagid;
             }
         } else { 
                 echo "Geen categorieën.";
         }
         ?>
-        <input name="post" type="submit" value="Filter">
+        <input name="post" type="submit" value="Filter" >
     </form>   
 </div>
 

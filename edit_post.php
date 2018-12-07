@@ -47,9 +47,9 @@
             <!-- is $_POST['cats'] gelijk aan de tagid echo dan checked -->
             <input type='radio' name= 'cats' <?php echo $tagid; ?> value='<?php echo $tagid ?>'/>
             <?php echo $row['category'];
-            }
-            }else {echo "Geen categorieën.";
-            }
+        }
+        }else {echo "Geen categorieën.";
+        }
 
         $sql_get ="SELECT * FROM post WHERE id=$pid LIMIT 1";
         $res = mysqli_query($db, $sql_get);
@@ -60,7 +60,7 @@
                     echo "<form action='edit_post.php?pid=$pid' method='post' enctype='multipart/form-data'><br/>";
                     echo "<input placeholder='Title' name='title' type='text' value='$title' autofocus size='48'><br/><br/>";
                     echo "<textarea placeholder='Content' name='content' rows='20' cols='50'>$content</textarea><br/><br/>";
-                }
+            }
         }
     ?>
         <input name="update" type="submit" value="Update">

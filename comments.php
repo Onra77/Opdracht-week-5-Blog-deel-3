@@ -6,9 +6,7 @@
   if(isset($_POST['reset'])) {
     $sql = "SELECT * FROM post ORDER BY id DESC";
   }
-?>
 
-    <?php
         require_once("nbbc.php");
         $bbcode = new BBCode;
         
@@ -26,13 +24,14 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
             $date = $row['date_formatted'];
             $com_id = $row['com_id'];
             $post_id = $row['post_id'];
-            $admin = "<div><a href='del_comment.php?com_id=$com_id&pid=$pid'>Verwijder</a></div>";
+            $admin = "<div><a href='del_comment.php?com_id=$com_id&pid=$pid'>Verwijder</a>&nbspcomment</div>";
             $output = $bbcode->Parse($content);
-            $post = "<div>$comment&nbsp&nbsp</b><b>Author:&nbsp$author</b>&nbsp&nbsp&nbsp$date&nbsp&nbsp$admin<p></div>";
+            $post = "<div><br/>$comment<p></b><b>Author:&nbsp$author</b>&nbsp&nbsp&nbsp$date&nbsp&nbsp$admin<p></div>";
             echo $post;
+            //header ("location: index.php?pid=$pid");
         }
     } else { 
-            ?><?php  echo "Er zijn geen comments in deze bericht.";
+            echo "Er zijn geen comments in deze bericht.";
     }
 } else if(mysqli_num_rows($res) >0) {
     while($row = mysqli_fetch_assoc($res)) {
@@ -41,28 +40,25 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
         $content = $row['content'];
         $date = $row['date_formatted'];
         $output = $bbcode->Parse($content);
-        $post = "<div><a href='index.php?pid=$id'/><b>$title<?b></a>&nbsp&nbsp&nbsp<b>$date</b><p></div>";
+        $post = "<div><a href='index.php?pid=$id'/><b>$title<?b></a>&nbsp&nbsp&nbsp<b>$date</b><p><br/></div>";
         echo $post;
     } 
 }
 
-
-
     //$pid=$_SESSION['pid'];
     // Als je niet ingelogd bent wordt je naar login.php gestuurd.
- //   echo $_SESSION['username']; 
+    //echo $_SESSION['username']; 
     if(!isset($_SESSION['username'])) {
         //true al ingelogd
         header("location:login.php");
-    } else{
+    } else {
         // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
         $comment = '';
         
-      //  $pid = '';
-       // $post_id = '';
+        // $pid = '';
+        // $post_id = '';
 
                //echo "GELUKT";
-    
 
         // Invoeren van tekst en titel voor de blog in tabel comments.
         if(isset($_POST['comments'])) {
@@ -78,19 +74,16 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
         }   else {
             $author = "anonymous";
         }
-
-
-
-
         $sql =  "INSERT into comments (comment, author, post_id) VALUES ('$comment', '$author', '$post_id')";
         if(empty($comment) || empty($author) || $captcha != $code || empty($captcha)) {
         echo "De post is niet compleet ingevuld!";
-    } else {
+        
+        } else {
 
         if (mysqli_query($db, $sql));
         //echo "GELUKT";
-        //exit();
-        //header("Location: index.php?pid=$pid");
+        exit();
+        header("Location: index.php?pid=$pid");
         }
         }
     }      
@@ -101,14 +94,6 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 <head>
 </head>
 
-
-
-
-
-
-
-
-
 <body>
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
        
@@ -117,13 +102,8 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
         <input name="comments" type="submit" value="Post">
         <input name="reset" type="reset" value="Reset">
         <input type="button" value="Terug" onclick="location.href='index.php';"><br/><br/>
-
-           
-       <input type="checkbox"  class="anonymous" name="anonymous" value="0"/>
-      
-
-
-
+        <!-- text only --> anonymous?
+        <input type="checkbox"  class="anonymous" name="anonymous" value="0"/>
         <?php echo $cap = (rand(100,1000)); ?>
         <input placeholder="Wat is de code?" type="text" name="captcha">
         <input type="hidden" name="cap" value="<?php echo $cap;?>">

@@ -24,7 +24,7 @@
     if(isset($_POST['zoek'])){
         $zoekbalk = $_POST['zoekbalk'];
         $con=mysqli_connect("localhost","root","","blog2");
-        $sql = "SELECT * FROM post WHERE title LIKE '%$zoekbalk%'";
+        $sql = "SELECT * FROM post WHERE author LIKE '%$zoekbalk%' OR title LIKE '%$zoekbalk%'";
         $query=mysqli_query($con, $sql);
         $rowcount=mysqli_num_rows($query);
         echo "Resultaat: ";
@@ -49,7 +49,9 @@
         } 
         }
     }      
+    include 'profile.html';
     ?>
+    
 </div>
 
 <div id=blog>
@@ -72,7 +74,7 @@ if(!isset($_GET['pid'])) {
             $author = $row['author'];
             $cats = $row['cat_id'];
             $date = $row['date_formatted'];
-            $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;<a href='edit_post.php?pid=$id'>Wijzig</a>&nbsp</div>";
+            $admin = "<div><a href='del_post.php?pid=$id'>Verwijder</a>&nbsp;of&nbsp<a href='edit_post.php?pid=$id'>Wijzig</a>&nbspblog</div>";
             $output = $bbcode->Parse($content);
      
             // Geeft alleen mogelijkheid to wijzigen en verwijderen als ingelog bent.   
@@ -88,6 +90,7 @@ if(!isset($_GET['pid'])) {
             }
         }
     }
+    
 ?>
 </div>
 </body>

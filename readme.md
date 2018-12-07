@@ -28,6 +28,7 @@ klaar
 
 W5-008
 Als blogger wil ik een openbare profielpagina hebben zodat lezers mijn berichten in kunnen lezen en mijn persoonlijke informatie kunnen bekijken.
+klaar
 
 Optionele user stories
 
